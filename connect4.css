@@ -1,10 +1,20 @@
 /* game board table */
+body {
+  background-color: blanchedalmond;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+  padding: 25px;
+}
 
 #board td {
-  width: 50px;
-  height: 50px;
+  width: 100px;
+  height: 100px;
   border: solid 1px #666;
   position: relative;
+  margin: 20px;
+  padding: 5px;
 }
 
 /* pieces are div within game table cells: draw as colored circles */
@@ -53,3 +63,4 @@
   from {transform: translateY(-50vh);}
   to {transform: translateY(0);}
 }
+
