@@ -4,7 +4,7 @@
  * column until a player gets four-in-a-row (horiz, vert, or diag) or until
  * board fills (tie)
  */
-
+window.addEventListener('load', function(){
 const WIDTH = 7;
 const HEIGHT = 6;
 
@@ -97,11 +97,15 @@ function placeInTable(y, x) {
 }
 
 /** endGame: announce game end */
-
 function endGame(msg) {
   // TODO: pop up alert message
-  alert(msg);
+  //QA: need to prevent alert from popping up before the piece is
+  setTimeout(()=>{
+    alert(msg)
+  }, 750);
+  
 }
+
 
 /** handleClick: handle click of column top to play piece */
 
@@ -122,6 +126,7 @@ function handleClick(e) {
   placeInTable(y, x);
 
   // check for win
+  
   if (checkForWin()) {
     return endGame(`Player ${currPlayer} won!`);
   }
@@ -132,7 +137,7 @@ function handleClick(e) {
       if (board.every(row => row.every(cell => cell))) {
         return endGame("TIE! No player won!");
       }
-
+  
   // switch players
   // TODO: switch currPlayer 1 <-> 2
   //ternary operator currPlayer = 1 or 2
@@ -190,3 +195,4 @@ function checkForWin() {
 
 makeBoard();
 makeHtmlBoard();
+})
